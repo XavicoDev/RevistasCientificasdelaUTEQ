@@ -1,5 +1,6 @@
 package com.example.revistascientficasdelauteq.adaptador;
 
+import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -29,22 +30,26 @@ public class AdaptadorArticulos extends RecyclerView.Adapter<AdaptadorArticulos.
 
     @Override
     public void onBindViewHolder(@NonNull AdaptadorArticulos.ViewHolder holder, int position) {
+        String desc= Html.fromHtml( seccionArticuloLista.get(position).getAbstract()).toString();
         SeccionArticulo subItem = seccionArticuloLista.get(position);
         holder.title.setText(subItem.getTitle());
-        holder.descripcion.setText(subItem.getAbstract());
+        holder.descripcion.setText("Resumen : "+desc);
+        holder.doi.setText("Doi : "+subItem.getDoi());
+        holder.fecha.setText("Fecha de pubicacion :"+subItem.getDatePublished());
     }
 
     @Override
     public int getItemCount() {
         return seccionArticuloLista.size();
     }
-
     public class ViewHolder extends RecyclerView.ViewHolder {
-        TextView title, descripcion;
+        TextView title, descripcion, doi, fecha;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             title=itemView.findViewById(R.id.tv_sub_item_title);
             descripcion=itemView.findViewById(R.id.tv_sub_item_resumen);
+            doi=itemView.findViewById(R.id.tv_sub_item_link);
+            fecha=itemView.findViewById(R.id.tv_sub_item_fecha);
         }
     }
 }

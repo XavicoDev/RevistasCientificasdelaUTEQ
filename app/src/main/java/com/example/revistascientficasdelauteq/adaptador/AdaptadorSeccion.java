@@ -51,11 +51,13 @@ public class AdaptadorSeccion extends  RecyclerView.Adapter<AdaptadorSeccion.Vie
     public void onBindViewHolder(@NonNull AdaptadorSeccion.ViewHolder holder, int position) {
         Seccion2 item = seccion2s.get(position);
         holder.seccion.setText(item.getSection());
+
         LinearLayoutManager layoutManager = new LinearLayoutManager(
                 holder.rvArticulo.getContext(),
                 LinearLayoutManager.VERTICAL,
                 false
         );
+
         layoutManager.setInitialPrefetchItemCount(item.getArticulos().size());
 
         AdaptadorArticulos adaptadorArticulos = new AdaptadorArticulos(item.getArticulos());
@@ -76,6 +78,7 @@ public class AdaptadorSeccion extends  RecyclerView.Adapter<AdaptadorSeccion.Vie
             super(itemView);
             seccion=itemView.findViewById(R.id.tv_item_title);
             rvArticulo=itemView.findViewById(R.id.rv_sub_item);
+
         }
     }
 }

@@ -6,6 +6,7 @@ import java.util.List;
 public class Seccion2 {
     String section;
     List<SeccionArticulo> articulos;
+
     public Seccion2(String section, List<SeccionArticulo> articulos) {
         this.section = section;
         this.articulos = articulos;
@@ -30,9 +31,12 @@ public class Seccion2 {
 
     public static ArrayList<Seccion2> JsonObjectsBuild(List<Articulo> articulos){
         ArrayList<Seccion2> seccion2Revistas = new ArrayList<>();
+
         ArrayList<String> secciones= new ArrayList<>();
+
         String seccion="";
         String aux_seccion="";
+
         for (int i = 0; i < articulos.size() ; i++) {
             seccion=articulos.get(i).getSection();
             if(!seccion.equals(aux_seccion)){
