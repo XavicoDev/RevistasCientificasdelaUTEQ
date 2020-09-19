@@ -17,7 +17,7 @@
             android:id="@+id/imgjrn"
             android:layout_width="match_parent"
             android:layout_height="200dp"
-            android:src="@drawable/imagen_muestra"
+            android:src="@drawable/documento"
             android:scaleType="centerCrop"/>
         <TextView
             android:id="@+id/txtJournalN"
