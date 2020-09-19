@@ -93,7 +93,6 @@ public class Revista {
 
     public static ArrayList<Revista> JsonObjectsBuild(JSONArray datos) throws JSONException {
         ArrayList<Revista> revistas = new ArrayList<>();
-
         for (int i = 0; i < datos.length() ; i++) {
             revistas.add(new Revista(datos.getJSONObject(i)));
         }

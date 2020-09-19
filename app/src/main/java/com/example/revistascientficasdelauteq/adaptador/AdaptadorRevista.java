@@ -44,7 +44,6 @@ public class AdaptadorRevista extends RecyclerView.Adapter<AdaptadorRevista.View
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         holder.name.setText(mData.get(position).getName());
-        //holder.descripJ.setText(mData.get(position).getDescription());
         Picasso.with(mContext)
                 .load(mData.get(position).getPortada())
                 .into(holder.imageView);

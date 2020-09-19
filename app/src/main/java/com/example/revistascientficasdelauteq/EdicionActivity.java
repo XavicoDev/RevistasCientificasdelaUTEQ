@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
@@ -34,17 +35,18 @@ import javax.net.ssl.TrustManager;
 import javax.net.ssl.X509TrustManager;
 
 public class EdicionActivity extends AppCompatActivity implements Asynchtask {
-    private RequestQueue queue;
+    //private RequestQueue queue;
     ArrayList<Edicion> ediciones;
     RecyclerView recyclerView;
     AdaptadorEdicion adapator;
     Bundle parametros;
+    String id_revista;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edicion);
         parametros = this.getIntent().getExtras();
-        queue= Volley.newRequestQueue(EdicionActivity.this);
+      //  queue= Volley.newRequestQueue(EdicionActivity.this);
         recyclerView = (RecyclerView)findViewById(R.id.recyclerView_ediciones);
         recyclerView.setLayoutManager(new LinearLayoutManager(EdicionActivity.this));
         handleSSLHandshake();
@@ -76,8 +78,8 @@ public class EdicionActivity extends AppCompatActivity implements Asynchtask {
         }
     }
     private void consultarRevistas(){
-        String id = parametros.getString("id_revista");
-        String url ="https://revistas.uteq.edu.ec/ws/issues.php?j_id="+id;
+        id_revista= parametros.getString("id_revista");
+        String url ="https://revistas.uteq.edu.ec/ws/issues.php?j_id="+id_revista;
         Map<String, String> datos = new HashMap<String, String>();
         WebService ws= new WebService(url,
                 datos, EdicionActivity.this, EdicionActivity.this);
@@ -93,6 +95,10 @@ public class EdicionActivity extends AppCompatActivity implements Asynchtask {
                 @Override
                 public void onClick(View view) {
                     Toast.makeText(getApplicationContext(),"Selecciono :" + ediciones.get(recyclerView.getChildAdapterPosition(view)).getIssueId(),Toast.LENGTH_SHORT).show();
+                    Intent intent= new Intent(EdicionActivity.this,SeccionArticulosActivity.class);
+                    intent.putExtra("id_revista",id_revista);
+                    intent.putExtra("id_edicion",ediciones.get(recyclerView.getChildAdapterPosition(view)).getIssueId());
+                    startActivity(intent);
                 }
             });
             recyclerView.setAdapter(adapator);
