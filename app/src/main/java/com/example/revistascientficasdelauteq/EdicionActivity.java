@@ -45,7 +45,7 @@ public class EdicionActivity extends AppCompatActivity implements Asynchtask {
         setContentView(R.layout.activity_edicion);
         parametros = this.getIntent().getExtras();
         queue= Volley.newRequestQueue(EdicionActivity.this);
-        recyclerView = (RecyclerView)findViewById(R.id.recyclerView_revistas);
+        recyclerView = (RecyclerView)findViewById(R.id.recyclerView_ediciones);
         recyclerView.setLayoutManager(new LinearLayoutManager(EdicionActivity.this));
         handleSSLHandshake();
         consultarRevistas();

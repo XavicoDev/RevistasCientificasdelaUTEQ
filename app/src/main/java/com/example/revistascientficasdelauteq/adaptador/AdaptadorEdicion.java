@@ -54,12 +54,14 @@ public class AdaptadorEdicion extends RecyclerView.Adapter<AdaptadorEdicion.View
 
     @Override
     public void onClick(View view) {
+        if(listener!=null){
+            listener.onClick(view);
+        }
     }
-
 
     @Override
     public int getItemCount() {
-        return 0;
+        return ediciones.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
