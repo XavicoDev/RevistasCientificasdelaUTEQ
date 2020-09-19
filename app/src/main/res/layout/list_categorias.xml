@@ -20,8 +20,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:padding="12sp"
-                android:textSize="18sp"
-                android:text="Item Title"/>
+                android:textSize="20sp"
+                android:text="Item Title"
+                android:textStyle="bold|italic"/>
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rv_sub_item"
                 android:layout_width="match_parent"

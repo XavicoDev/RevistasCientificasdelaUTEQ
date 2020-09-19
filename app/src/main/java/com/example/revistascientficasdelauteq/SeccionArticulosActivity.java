@@ -53,10 +53,7 @@ public class SeccionArticulosActivity extends AppCompatActivity implements Async
     private void consultarSeccionesArticulos() {
         id_revista= parametros.getString("id_revista");
         id_edicion=parametros.getString("id_edicion");
-        //String url1="https://revistas.uteq.edu.ec/ws/pubssections.php?i_id="+id_edicion;
-        //String url="https://revistas.uteq.edu.ec/ws/pubs.php?i_id=78&section=2";
         String url="https://revistas.uteq.edu.ec/ws/pubs.php?i_id="+id_edicion;
-        //String url ="https://revistas.uteq.edu.ec/ws/pubs.php?i_id="+id_revista+"&section="+id_edicion;
         Map<String, String> datos = new HashMap<String, String>();
         WebService ws= new WebService(url,
                 datos, SeccionArticulosActivity.this, SeccionArticulosActivity.this);

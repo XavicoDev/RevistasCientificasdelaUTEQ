@@ -14,8 +14,8 @@
                 android:id="@+id/img_sub_item"
                 android:layout_width="60dp"
                 android:layout_height="60dp"
-                android:background="@color/colorPrimaryDark"
-                android:src="@drawable/ic_launcher_foreground"/>
+
+                android:src="@drawable/documento"/>
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
